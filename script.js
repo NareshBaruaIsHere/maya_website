@@ -7,7 +7,28 @@
   "use strict";
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const APP_VERSION = "1.0";
+  const APP_VERSION_BENGALI = "১.০";
   const MAYA_APK_URL = "assets/downloads/maya.apk";
+
+  function initVersionDisplay() {
+    document.title = `মায়া v${APP_VERSION} — ব্যক্তিগত নিরাপত্তা ও SOS অ্যাপ`;
+
+    const title = document.querySelector("[data-app-version-title]");
+    if (title) {
+      title.textContent = `মায়া v${APP_VERSION}`;
+    }
+
+    const versionNumber = document.querySelector("[data-app-version-number]");
+    if (versionNumber) {
+      versionNumber.textContent = APP_VERSION_BENGALI;
+    }
+
+    const footerName = document.querySelector("[data-app-version-footer]");
+    if (footerName) {
+      footerName.textContent = `মায়া v${APP_VERSION}`;
+    }
+  }
 
   /* --------------------------------------------------------------------------
      APK Download — mobile-friendly direct link + availability check
@@ -214,6 +235,7 @@
      DOM Ready
      -------------------------------------------------------------------------- */
   function init() {
+    initVersionDisplay();
     initIcons();
     initReveal();
     initSmoothScroll();
