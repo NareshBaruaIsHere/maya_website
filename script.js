@@ -6,17 +6,19 @@
 (function () {
   "use strict";
 
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const APP_VERSION = "1.0";
-  const APP_VERSION_BENGALI = "১.০";
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  const APP_VERSION = "1.0.2";
+  const APP_VERSION_BENGALI = "1.0.2";
   const MAYA_APK_URL = "assets/downloads/maya.apk";
 
   function initVersionDisplay() {
-    document.title = `মায়া v${APP_VERSION} — ব্যক্তিগত নিরাপত্তা ও SOS অ্যাপ`;
+    document.title = "মায়া — ব্যক্তিগত নিরাপত্তা ও SOS অ্যাপ";
 
     const title = document.querySelector("[data-app-version-title]");
     if (title) {
-      title.textContent = `মায়া v${APP_VERSION}`;
+      title.textContent = "মায়া";
     }
 
     const versionNumber = document.querySelector("[data-app-version-number]");
@@ -24,9 +26,14 @@
       versionNumber.textContent = APP_VERSION_BENGALI;
     }
 
+    const versionLabel = document.querySelector("[data-app-version-label]");
+    if (versionLabel) {
+      versionLabel.textContent = `বর্তমান সংস্করণ: v${APP_VERSION}`;
+    }
+
     const footerName = document.querySelector("[data-app-version-footer]");
     if (footerName) {
-      footerName.textContent = `মায়া v${APP_VERSION}`;
+      footerName.textContent = "মায়া";
     }
   }
 
@@ -58,7 +65,7 @@
 
     if (window.location.protocol === "file:") {
       showApkToast(
-        "ফাইল হিসেবে খোলা হলে APK ডাউনলোড কাজ নাও করতে পারে। সাইটটি একটি ওয়েব সার্ভারে হোস্ট করুন অথবা GitHub Pages ব্যবহার করুন।"
+        "ফাইল হিসেবে খোলা হলে APK ডাউনলোড কাজ নাও করতে পারে। সাইটটি একটি ওয়েব সার্ভারে হোস্ট করুন অথবা GitHub Pages ব্যবহার করুন।",
       );
       return;
     }
@@ -67,13 +74,13 @@
       .then(function (response) {
         if (!response.ok) {
           showApkToast(
-            "APK ফাইল পাওয়া যায়নি। দয়া করে maya.apk ফাইলটি assets/downloads/ ফোল্ডারে রাখুন।"
+            "APK ফাইল পাওয়া যায়নি। দয়া করে maya.apk ফাইলটি assets/downloads/ ফোল্ডারে রাখুন।",
           );
         }
       })
       .catch(function () {
         showApkToast(
-          "APK ডাউনলোড যাচাই করা যায়নি। নিশ্চিত করুন maya.apk ফাইলটি assets/downloads/ এ আছে।"
+          "APK ডাউনলোড যাচাই করা যায়নি। নিশ্চিত করুন maya.apk ফাইলটি assets/downloads/ এ আছে।",
         );
       });
 
@@ -82,7 +89,7 @@
         if (window.location.protocol === "file:") {
           e.preventDefault();
           showApkToast(
-            "সরাসরি ফাইল খোলায় ডাউনলোড কাজ করে না। ওয়েব সার্ভার বা হোস্টিং ব্যবহার করুন।"
+            "সরাসরি ফাইল খোলায় ডাউনলোড কাজ করে না। ওয়েব সার্ভার বা হোস্টিং ব্যবহার করুন।",
           );
         }
       });
@@ -124,7 +131,7 @@
       {
         threshold: 0.15,
         rootMargin: "0px 0px -40px 0px",
-      }
+      },
     );
 
     reveals.forEach(function (el) {
@@ -171,7 +178,9 @@
     const lightboxImage = lightbox.querySelector(".lightbox__image");
     const closeBtn = lightbox.querySelector(".lightbox__close");
     const backdrop = lightbox.querySelector(".lightbox__backdrop");
-    const screenshotCards = document.querySelectorAll(".screenshot-card[data-lightbox]");
+    const screenshotCards = document.querySelectorAll(
+      ".screenshot-card[data-lightbox]",
+    );
 
     let lastFocusedElement = null;
 

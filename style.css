@@ -419,6 +419,19 @@ button {
   border-color: rgba(255, 255, 255, 0.6);
 }
 
+.hero__version {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 /* Phone Mockup */
 .hero__mockup {
   display: flex;

@@ -1,476 +1,675 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Maya — আপনার ব্যক্তিগত নিরাপত্তা ও SOS সহকারী। জরুরি অবস্থায় এক ট্যাপে Guardian-দের সতর্ক করুন এবং লাইভ লোকেশন শেয়ার করুন।">
-  <meta name="theme-color" content="#9d174d">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Maya — আপনার ব্যক্তিগত নিরাপত্তা ও SOS সহকারী। জরুরি অবস্থায় এক ট্যাপে Guardian-দের সতর্ক করুন এবং লাইভ লোকেশন শেয়ার করুন।"
+    />
+    <meta name="theme-color" content="#9d174d" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Maya — ব্যক্তিগত নিরাপত্তা ও SOS অ্যাপ">
-  <meta property="og:description" content="Maya — আপনার ব্যক্তিগত নিরাপত্তা ও SOS সহকারী। জরুরি অবস্থায় দ্রুত সাহায্য পান।">
-  <meta property="og:type" content="website">
-  <!-- MAYA:OG_IMAGE — Replace with your social preview image -->
-  <meta property="og:image" content="assets/images/og-image.png">
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Maya — ব্যক্তিগত নিরাপত্তা ও SOS অ্যাপ"
+    />
+    <meta
+      property="og:description"
+      content="Maya — আপনার ব্যক্তিগত নিরাপত্তা ও SOS সহকারী। জরুরি অবস্থায় দ্রুত সাহায্য পান।"
+    />
+    <meta property="og:type" content="website" />
+    <!-- MAYA:OG_IMAGE — Replace with your social preview image -->
+    <meta property="og:image" content="assets/images/og-image.png" />
 
-  <title>মায়া v1.0 — ব্যক্তিগত নিরাপত্তা ও SOS অ্যাপ</title>
+    <title>মায়া — ব্যক্তিগত নিরাপত্তা ও SOS অ্যাপ</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="assets/images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.ico" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Decorative background blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
 
-  <!-- Decorative background blobs -->
-  <div class="bg-blobs" aria-hidden="true">
-    <span class="blob blob-1"></span>
-    <span class="blob blob-2"></span>
-    <span class="blob blob-3"></span>
-  </div>
-
-  <header id="hero" class="hero">
-    <div class="container hero__inner">
-      <div class="hero__content reveal">
-        <div class="hero__brand">
-          <!-- MAYA:LOGO — Save your app icon as assets/images/logo.png -->
-          <img src="assets/images/logo.png" alt="Maya অ্যাপ লোগো" class="hero__logo" width="64" height="64" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-          <span class="hero__logo-fallback" hidden aria-hidden="true">মা</span>
-          <h1 class="hero__title" data-app-version-title>মায়া v1.0</h1>
-        </div>
-        <p class="hero__tagline">আপনার ব্যক্তিগত নিরাপত্তা ও SOS সহকারী</p>
-        <p class="hero__intro">
-          Maya একটি ব্যক্তিগত নিরাপত্তা অ্যাপ্লিকেশন যা জরুরি অবস্থায় আপনাকে দ্রুত সাহায্য পেতে সহায়তা করে।
-          মাত্র এক ট্যাপে আপনার বিশ্বস্ত Guardian-দের সতর্ক করুন এবং আপনার লাইভ লোকেশন শেয়ার করুন।
-        </p>
-        <div class="hero__actions">
-          <a href="assets/downloads/maya.apk" class="btn btn-primary apk-download" data-apk-download>
-            <i data-lucide="download" aria-hidden="true"></i>
-            APK ডাউনলোড করুন
-          </a>
-          <a href="#feedback" class="btn btn-secondary">
-            <i data-lucide="message-circle" aria-hidden="true"></i>
-            ফিডব্যাক দিন
-          </a>
-        </div>
-      </div>
-
-      <div class="hero__mockup reveal" data-delay="1">
-        <div class="phone-mockup" role="img" aria-label="Maya অ্যাপের ফোন মকআপ">
-          <div class="phone-mockup__frame">
-            <div class="phone-mockup__notch" aria-hidden="true"></div>
-            <!-- MAYA:HERO_SCREENSHOT — Save as assets/images/screenshot-hero.png -->
+    <header id="hero" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <div class="hero__brand">
+            <!-- MAYA:LOGO — Save your app icon as assets/images/logo.png -->
             <img
-              src="assets/images/screenshot-hero.png"
-              alt="Maya অ্যাপের হোম স্ক্রিনশট"
-              class="phone-mockup__screen"
-              width="280"
-              height="560"
+              src="assets/images/logo.png"
+              alt="Maya অ্যাপ লোগো"
+              class="hero__logo"
+              width="64"
+              height="64"
+              onerror="
+                this.hidden = true;
+                this.nextElementSibling.hidden = false;
+              "
+            />
+            <span class="hero__logo-fallback" hidden aria-hidden="true"
+              >মা</span
             >
+            <h1 class="hero__title" data-app-version-title>মায়া</h1>
+          </div>
+          <p class="hero__tagline">আপনার ব্যক্তিগত নিরাপত্তা ও SOS সহকারী</p>
+          <p class="hero__intro">
+            Maya একটি ব্যক্তিগত নিরাপত্তা অ্যাপ্লিকেশন যা জরুরি অবস্থায় আপনাকে
+            দ্রুত সাহায্য পেতে সহায়তা করে। মাত্র এক ট্যাপে আপনার বিশ্বস্ত
+            Guardian-দের সতর্ক করুন এবং আপনার লাইভ লোকেশন শেয়ার করুন।
+          </p>
+          <div class="hero__actions">
+            <a
+              href="assets/downloads/maya.apk"
+              class="btn btn-primary apk-download"
+              data-apk-download
+            >
+              <i data-lucide="download" aria-hidden="true"></i>
+              APK ডাউনলোড করুন
+            </a>
+            <a href="#feedback" class="btn btn-secondary">
+              <i data-lucide="message-circle" aria-hidden="true"></i>
+              ফিডব্যাক দিন
+            </a>
+            <p class="hero__version" data-app-version-label>বর্তমান সংস্করণ: v1.0.2</p>
           </div>
         </div>
-      </div>
-    </div>
 
-    <a href="#about" class="scroll-hint" aria-label="নিচে স্ক্রল করুন">
-      <i data-lucide="chevron-down" aria-hidden="true"></i>
-    </a>
-  </header>
-
-  <main>
-
-    <!-- About Section -->
-    <section id="about" class="section about" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 id="about-heading" class="section-title">Maya সম্পর্কে</h2>
-          <p class="section-subtitle">আপনার নিরাপত্তা, আমাদের অগ্রাধিকার</p>
-        </div>
-
-        <div class="about__grid">
-          <div class="about__text reveal">
-            <p>
-              Maya একটি ব্যক্তিগত নিরাপত্তা অ্যাপ্লিকেশন যা মহিলা, শিক্ষার্থী এবং পরিবারের সদস্যদের
-              জরুরি অবস্থায় দ্রুত সাহায্য পেতে সহায়তা করে।
-            </p>
-            <p>
-              যখন আপনি বিপদে পড়েন, Maya আপনাকে মুহূর্তের মধ্যে আপনার বিশ্বস্ত Guardian-দের
-              অবহিত করতে সাহায্য করে। অ্যাপটি আপনার লাইভ লোকেশন শেয়ার করে এবং
-              জরুরি যোগাযোগ দ্রুততর ও নির্ভরযোগ্য করে তোলে।
-            </p>
-            <p>
-              Maya-র মাধ্যমে আপনি নিজেকে এবং আপনার প্রিয়জনদের আরও নিরাপদ রাখতে পারেন —
-              যেকোনো সময়, যেকোনো জায়গায়।
-            </p>
-          </div>
-
-          <div class="trust-strip reveal" data-delay="1">
-            <div class="trust-item">
-              <div class="trust-item__icon">
-                <i data-lucide="shield-check" aria-hidden="true"></i>
-              </div>
-              <h3 class="trust-item__title">নির্ভরযোগ্য সুরক্ষা</h3>
-              <p class="trust-item__text">২৪/৭ আপনার পাশে থাকার প্রতিশ্রুতি</p>
-            </div>
-            <div class="trust-item">
-              <div class="trust-item__icon">
-                <i data-lucide="heart-handshake" aria-hidden="true"></i>
-              </div>
-              <h3 class="trust-item__title">প্রিয়জনদের সাথে</h3>
-              <p class="trust-item__text">Guardian-দের সাথে সরাসরি সংযুক্ত</p>
-            </div>
-            <div class="trust-item">
-              <div class="trust-item__icon">
-                <i data-lucide="zap" aria-hidden="true"></i>
-              </div>
-              <h3 class="trust-item__title">দ্রুত প্রতিক্রিয়া</h3>
-              <p class="trust-item__text">সেকেন্ডের মধ্যে SOS সতর্কতা</p>
+        <div class="hero__mockup reveal" data-delay="1">
+          <div
+            class="phone-mockup"
+            role="img"
+            aria-label="Maya অ্যাপের ফোন মকআপ"
+          >
+            <div class="phone-mockup__frame">
+              <div class="phone-mockup__notch" aria-hidden="true"></div>
+              <!-- MAYA:HERO_SCREENSHOT — Save as assets/images/screenshot-hero.png -->
+              <img
+                src="assets/images/screenshot-hero.png"
+                alt="Maya অ্যাপের হোম স্ক্রিনশট"
+                class="phone-mockup__screen"
+                width="280"
+                height="560"
+              />
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="section features" aria-labelledby="features-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 id="features-heading" class="section-title">মূল বৈশিষ্ট্যসমূহ</h2>
-          <p class="section-subtitle">Maya যা যা করতে পারে, তার সবকিছু এক নজরে</p>
+      <a href="#about" class="scroll-hint" aria-label="নিচে স্ক্রল করুন">
+        <i data-lucide="chevron-down" aria-hidden="true"></i>
+      </a>
+    </header>
+
+    <main>
+      <!-- About Section -->
+      <section id="about" class="section about" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 id="about-heading" class="section-title">Maya সম্পর্কে</h2>
+            <p class="section-subtitle">আপনার নিরাপত্তা, আমাদের অগ্রাধিকার</p>
+          </div>
+
+          <div class="about__grid">
+            <div class="about__text reveal">
+              <p>
+                Maya একটি ব্যক্তিগত নিরাপত্তা অ্যাপ্লিকেশন যা মহিলা, শিক্ষার্থী
+                এবং পরিবারের সদস্যদের জরুরি অবস্থায় দ্রুত সাহায্য পেতে সহায়তা
+                করে।
+              </p>
+              <p>
+                যখন আপনি বিপদে পড়েন, Maya আপনাকে মুহূর্তের মধ্যে আপনার বিশ্বস্ত
+                Guardian-দের অবহিত করতে সাহায্য করে। অ্যাপটি আপনার লাইভ লোকেশন
+                শেয়ার করে এবং জরুরি যোগাযোগ দ্রুততর ও নির্ভরযোগ্য করে তোলে।
+              </p>
+              <p>
+                Maya-র মাধ্যমে আপনি নিজেকে এবং আপনার প্রিয়জনদের আরও নিরাপদ
+                রাখতে পারেন — যেকোনো সময়, যেকোনো জায়গায়।
+              </p>
+            </div>
+
+            <div class="trust-strip reveal" data-delay="1">
+              <div class="trust-item">
+                <div class="trust-item__icon">
+                  <i data-lucide="shield-check" aria-hidden="true"></i>
+                </div>
+                <h3 class="trust-item__title">নির্ভরযোগ্য সুরক্ষা</h3>
+                <p class="trust-item__text">
+                  ২৪/৭ আপনার পাশে থাকার প্রতিশ্রুতি
+                </p>
+              </div>
+              <div class="trust-item">
+                <div class="trust-item__icon">
+                  <i data-lucide="heart-handshake" aria-hidden="true"></i>
+                </div>
+                <h3 class="trust-item__title">প্রিয়জনদের সাথে</h3>
+                <p class="trust-item__text">Guardian-দের সাথে সরাসরি সংযুক্ত</p>
+              </div>
+              <div class="trust-item">
+                <div class="trust-item__icon">
+                  <i data-lucide="zap" aria-hidden="true"></i>
+                </div>
+                <h3 class="trust-item__title">দ্রুত প্রতিক্রিয়া</h3>
+                <p class="trust-item__text">সেকেন্ডের মধ্যে SOS সতর্কতা</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="features__grid">
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="siren" aria-hidden="true"></i>
+      <!-- Features Section -->
+      <section
+        id="features"
+        class="section features"
+        aria-labelledby="features-heading"
+      >
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 id="features-heading" class="section-title">
+              মূল বৈশিষ্ট্যসমূহ
+            </h2>
+            <p class="section-subtitle">
+              Maya যা যা করতে পারে, তার সবকিছু এক নজরে
+            </p>
+          </div>
+
+          <div class="features__grid">
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="siren" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">এক ট্যাপে SOS Alert</h3>
+              <p class="feature-card__text">
+                মাত্র এক ট্যাপে জরুরি SOS সতর্কতা পাঠান এবং সাহায্য আহ্বান করুন।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="volume-2" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">
+                Volume Button দিয়ে SOS Trigger
+              </h3>
+              <p class="feature-card__text">
+                ভলিউম বাটন চেপে দ্রুত ও গোপনে SOS চালু করুন।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="smartphone" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">Shake করে SOS Trigger</h3>
+              <p class="feature-card__text">
+                ফোন ঝাঁকিয়ে সহজেই SOS সক্রিয় করুন — হাত ব্যবহার ছাড়াই।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">Live Location Tracking</h3>
+              <p class="feature-card__text">
+                আপনার বর্তমান লাইভ লোকেশন Guardian-দের সাথে শেয়ার করুন।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="users" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">Guardian Notification</h3>
+              <p class="feature-card__text">
+                আপনার নির্বাচিত Guardian-দের তাৎক্ষণিক সতর্কতা পাঠান।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="message-square" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">SMS Notification</h3>
+              <p class="feature-card__text">
+                জরুরি বার্তা SMS-এর মাধ্যমে Guardian-দের কাছে পৌঁছে দিন।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="mail" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">Email Notification</h3>
+              <p class="feature-card__text">
+                ইমেইলের মাধ্যমেও বিস্তারিত সতর্কতা ও লোকেশন পাঠান।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="refresh-cw" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">Offline Retry System</h3>
+              <p class="feature-card__text">
+                ইন্টারনেট না থাকলেও পরে স্বয়ংক্রিয়ভাবে বার্তা পাঠানোর চেষ্টা
+                করে।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="eye-off" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">Stealth Mode</h3>
+              <p class="feature-card__text">
+                গোপনে SOS চালু করুন — কেউ বুঝতে পারবে না আপনি সাহায্য চাচ্ছেন।
+              </p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-card__icon">
+                <i data-lucide="languages" aria-hidden="true"></i>
+              </div>
+              <h3 class="feature-card__title">বাংলা ও ইংরেজি ভাষা সমর্থন</h3>
+              <p class="feature-card__text">
+                বাংলা ও ইংরেজি — আপনার সুবিধামতো ভাষা বেছে নিন।
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section
+        id="how-it-works"
+        class="section how-it-works"
+        aria-labelledby="how-heading"
+      >
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 id="how-heading" class="section-title">Maya কীভাবে কাজ করে</h2>
+            <p class="section-subtitle">
+              মাত্র ৫টি সহজ ধাপে নিরাপত্তা নিশ্চিত করুন
+            </p>
+          </div>
+
+          <ol class="steps">
+            <li class="step reveal">
+              <div class="step__number" aria-hidden="true">১</div>
+              <div class="step__content">
+                <h3 class="step__title">অ্যাপ ইনস্টল করুন</h3>
+                <p class="step__text">
+                  APK ডাউনলোড করে আপনার Android ফোনে Maya ইনস্টল করুন।
+                </p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <div class="step__number" aria-hidden="true">২</div>
+              <div class="step__content">
+                <h3 class="step__title">Guardian যুক্ত করুন</h3>
+                <p class="step__text">
+                  আপনার বিশ্বস্ত পরিবার ও বন্ধুদের Guardian হিসেবে যোগ করুন।
+                </p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <div class="step__number" aria-hidden="true">৩</div>
+              <div class="step__content">
+                <h3 class="step__title">প্রয়োজনীয় Permission দিন</h3>
+                <p class="step__text">
+                  লোকেশন, SMS ও নোটিফিকেশনের অনুমতি দিন যাতে SOS সঠিকভাবে কাজ
+                  করে।
+                </p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <div class="step__number" aria-hidden="true">৪</div>
+              <div class="step__content">
+                <h3 class="step__title">জরুরি অবস্থায় SOS চালু করুন</h3>
+                <p class="step__text">
+                  ট্যাপ, শেক বা ভলিউম বাটন দিয়ে যেকোনো সময় SOS সক্রিয় করুন।
+                </p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <div class="step__number" aria-hidden="true">৫</div>
+              <div class="step__content">
+                <h3 class="step__title">
+                  Guardian আপনার Location এবং Alert পেয়ে যাবে
+                </h3>
+                <p class="step__text">
+                  আপনার Guardian-রা তাৎক্ষণিক সতর্কতা ও লাইভ লোকেশন পাবেন।
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Screenshots Section -->
+      <section
+        id="screenshots"
+        class="section screenshots"
+        aria-labelledby="screenshots-heading"
+      >
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 id="screenshots-heading" class="section-title">
+              অ্যাপ স্ক্রিনশট
+            </h2>
+            <p class="section-subtitle">Maya-র ইন্টারফেস এক নজরে দেখুন</p>
+          </div>
+
+          <div class="screenshots__grid">
+            <!-- MAYA:SCREENSHOTS — Save as assets/images/screenshot-1.png … screenshot-4.png -->
+            <button
+              class="screenshot-card reveal"
+              type="button"
+              data-lightbox="assets/images/screenshot-1.png"
+              aria-label="SOS স্ক্রিনশট বড় করে দেখুন"
+            >
+              <img
+                src="assets/images/screenshot-1.png"
+                alt="Maya SOS স্ক্রিনশট"
+                width="360"
+                height="720"
+                loading="lazy"
+              />
+            </button>
+            <button
+              class="screenshot-card reveal"
+              type="button"
+              data-lightbox="assets/images/screenshot-2.png"
+              aria-label="Guardian তালিকা স্ক্রিনশট বড় করে দেখুন"
+            >
+              <img
+                src="assets/images/screenshot-2.png"
+                alt="Maya Guardian তালিকা স্ক্রিনশট"
+                width="360"
+                height="720"
+                loading="lazy"
+              />
+            </button>
+            <button
+              class="screenshot-card reveal"
+              type="button"
+              data-lightbox="assets/images/screenshot-3.png"
+              aria-label="লাইভ লোকেশন স্ক্রিনশট বড় করে দেখুন"
+            >
+              <img
+                src="assets/images/screenshot-3.png"
+                alt="Maya লাইভ লোকেশন স্ক্রিনশট"
+                width="360"
+                height="720"
+                loading="lazy"
+              />
+            </button>
+            <button
+              class="screenshot-card reveal"
+              type="button"
+              data-lightbox="assets/images/screenshot-4.png"
+              aria-label="সেটিংস স্ক্রিনশট বড় করে দেখুন"
+            >
+              <img
+                src="assets/images/screenshot-4.png"
+                alt="Maya সেটিংস স্ক্রিনশট"
+                width="360"
+                height="720"
+                loading="lazy"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Download Section -->
+      <section
+        id="download"
+        class="section download"
+        aria-labelledby="download-heading"
+      >
+        <div class="container">
+          <div class="download-card reveal">
+            <div class="download-card__icon" aria-hidden="true">
+              <i data-lucide="download"></i>
             </div>
-            <h3 class="feature-card__title">এক ট্যাপে SOS Alert</h3>
-            <p class="feature-card__text">মাত্র এক ট্যাপে জরুরি SOS সতর্কতা পাঠান এবং সাহায্য আহ্বান করুন।</p>
-          </article>
+            <h2 id="download-heading" class="download-card__title">
+              Maya ডাউনলোড করুন
+            </h2>
+            <p class="download-card__text">
+              Android ফোনে Maya ইনস্টল করুন এবং আজই আপনার ব্যক্তিগত নিরাপত্তা
+              নিশ্চিত করুন।
+            </p>
 
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="volume-2" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">Volume Button দিয়ে SOS Trigger</h3>
-            <p class="feature-card__text">ভলিউম বাটন চেপে দ্রুত ও গোপনে SOS চালু করুন।</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
+            <!-- MAYA:APK_URL — Save APK as assets/downloads/maya.apk -->
+            <a
+              href="assets/downloads/maya.apk"
+              class="btn btn-primary btn-lg download-card__btn apk-download"
+              data-apk-download
+            >
               <i data-lucide="smartphone" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">Shake করে SOS Trigger</h3>
-            <p class="feature-card__text">ফোন ঝাঁকিয়ে সহজেই SOS সক্রিয় করুন — হাত ব্যবহার ছাড়াই।</p>
-          </article>
+              APK ডাউনলোড করুন
+            </a>
 
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="map-pin" aria-hidden="true"></i>
+            <div class="install-steps">
+              <h3 class="install-steps__title">ইনস্টলেশন নির্দেশনা</h3>
+              <ol class="install-steps__list">
+                <li>উপরের বাটনে ক্লিক করে APK ফাইল ডাউনলোড করুন।</li>
+                <li>ডাউনলোড করা ফাইল খুলে ইনস্টল করুন।</li>
+                <li>
+                  অ্যাপটি ইনস্টল করার জন্য
+                  <strong>"Unknown Sources"</strong> চালু করতে হতে পারে।
+                </li>
+              </ol>
+              <p class="install-steps__note">
+                <i data-lucide="info" aria-hidden="true"></i>
+                Android ৮.০ বা তার উপরের সংস্করণে Maya সর্বোত্তমভাবে কাজ করে।
+              </p>
             </div>
-            <h3 class="feature-card__title">Live Location Tracking</h3>
-            <p class="feature-card__text">আপনার বর্তমান লাইভ লোকেশন Guardian-দের সাথে শেয়ার করুন।</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="users" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">Guardian Notification</h3>
-            <p class="feature-card__text">আপনার নির্বাচিত Guardian-দের তাৎক্ষণিক সতর্কতা পাঠান।</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="message-square" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">SMS Notification</h3>
-            <p class="feature-card__text">জরুরি বার্তা SMS-এর মাধ্যমে Guardian-দের কাছে পৌঁছে দিন।</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="mail" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">Email Notification</h3>
-            <p class="feature-card__text">ইমেইলের মাধ্যমেও বিস্তারিত সতর্কতা ও লোকেশন পাঠান।</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="refresh-cw" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">Offline Retry System</h3>
-            <p class="feature-card__text">ইন্টারনেট না থাকলেও পরে স্বয়ংক্রিয়ভাবে বার্তা পাঠানোর চেষ্টা করে।</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="eye-off" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">Stealth Mode</h3>
-            <p class="feature-card__text">গোপনে SOS চালু করুন — কেউ বুঝতে পারবে না আপনি সাহায্য চাচ্ছেন।</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <i data-lucide="languages" aria-hidden="true"></i>
-            </div>
-            <h3 class="feature-card__title">বাংলা ও ইংরেজি ভাষা সমর্থন</h3>
-            <p class="feature-card__text">বাংলা ও ইংরেজি — আপনার সুবিধামতো ভাষা বেছে নিন।</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="section how-it-works" aria-labelledby="how-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 id="how-heading" class="section-title">Maya কীভাবে কাজ করে</h2>
-          <p class="section-subtitle">মাত্র ৫টি সহজ ধাপে নিরাপত্তা নিশ্চিত করুন</p>
-        </div>
-
-        <ol class="steps">
-          <li class="step reveal">
-            <div class="step__number" aria-hidden="true">১</div>
-            <div class="step__content">
-              <h3 class="step__title">অ্যাপ ইনস্টল করুন</h3>
-              <p class="step__text">APK ডাউনলোড করে আপনার Android ফোনে Maya ইনস্টল করুন।</p>
-            </div>
-          </li>
-          <li class="step reveal">
-            <div class="step__number" aria-hidden="true">২</div>
-            <div class="step__content">
-              <h3 class="step__title">Guardian যুক্ত করুন</h3>
-              <p class="step__text">আপনার বিশ্বস্ত পরিবার ও বন্ধুদের Guardian হিসেবে যোগ করুন।</p>
-            </div>
-          </li>
-          <li class="step reveal">
-            <div class="step__number" aria-hidden="true">৩</div>
-            <div class="step__content">
-              <h3 class="step__title">প্রয়োজনীয় Permission দিন</h3>
-              <p class="step__text">লোকেশন, SMS ও নোটিফিকেশনের অনুমতি দিন যাতে SOS সঠিকভাবে কাজ করে।</p>
-            </div>
-          </li>
-          <li class="step reveal">
-            <div class="step__number" aria-hidden="true">৪</div>
-            <div class="step__content">
-              <h3 class="step__title">জরুরি অবস্থায় SOS চালু করুন</h3>
-              <p class="step__text">ট্যাপ, শেক বা ভলিউম বাটন দিয়ে যেকোনো সময় SOS সক্রিয় করুন।</p>
-            </div>
-          </li>
-          <li class="step reveal">
-            <div class="step__number" aria-hidden="true">৫</div>
-            <div class="step__content">
-              <h3 class="step__title">Guardian আপনার Location এবং Alert পেয়ে যাবে</h3>
-              <p class="step__text">আপনার Guardian-রা তাৎক্ষণিক সতর্কতা ও লাইভ লোকেশন পাবেন।</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- Screenshots Section -->
-    <section id="screenshots" class="section screenshots" aria-labelledby="screenshots-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 id="screenshots-heading" class="section-title">অ্যাপ স্ক্রিনশট</h2>
-          <p class="section-subtitle">Maya-র ইন্টারফেস এক নজরে দেখুন</p>
-        </div>
-
-        <div class="screenshots__grid">
-          <!-- MAYA:SCREENSHOTS — Save as assets/images/screenshot-1.png … screenshot-4.png -->
-          <button class="screenshot-card reveal" type="button" data-lightbox="assets/images/screenshot-1.png" aria-label="SOS স্ক্রিনশট বড় করে দেখুন">
-            <img src="assets/images/screenshot-1.png" alt="Maya SOS স্ক্রিনশট" width="360" height="720" loading="lazy">
-          </button>
-          <button class="screenshot-card reveal" type="button" data-lightbox="assets/images/screenshot-2.png" aria-label="Guardian তালিকা স্ক্রিনশট বড় করে দেখুন">
-            <img src="assets/images/screenshot-2.png" alt="Maya Guardian তালিকা স্ক্রিনশট" width="360" height="720" loading="lazy">
-          </button>
-          <button class="screenshot-card reveal" type="button" data-lightbox="assets/images/screenshot-3.png" aria-label="লাইভ লোকেশন স্ক্রিনশট বড় করে দেখুন">
-            <img src="assets/images/screenshot-3.png" alt="Maya লাইভ লোকেশন স্ক্রিনশট" width="360" height="720" loading="lazy">
-          </button>
-          <button class="screenshot-card reveal" type="button" data-lightbox="assets/images/screenshot-4.png" aria-label="সেটিংস স্ক্রিনশট বড় করে দেখুন">
-            <img src="assets/images/screenshot-4.png" alt="Maya সেটিংস স্ক্রিনশট" width="360" height="720" loading="lazy">
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="download" class="section download" aria-labelledby="download-heading">
-      <div class="container">
-        <div class="download-card reveal">
-          <div class="download-card__icon" aria-hidden="true">
-            <i data-lucide="download"></i>
           </div>
-          <h2 id="download-heading" class="download-card__title">Maya ডাউনলোড করুন</h2>
-          <p class="download-card__text">
-            Android ফোনে Maya ইনস্টল করুন এবং আজই আপনার ব্যক্তিগত নিরাপত্তা নিশ্চিত করুন।
-          </p>
+        </div>
+      </section>
 
-          <!-- MAYA:APK_URL — Save APK as assets/downloads/maya.apk -->
-          <a href="assets/downloads/maya.apk" class="btn btn-primary btn-lg download-card__btn apk-download" data-apk-download>
-            <i data-lucide="smartphone" aria-hidden="true"></i>
-            APK ডাউনলোড করুন
-          </a>
-
-          <div class="install-steps">
-            <h3 class="install-steps__title">ইনস্টলেশন নির্দেশনা</h3>
-            <ol class="install-steps__list">
-              <li>উপরের বাটনে ক্লিক করে APK ফাইল ডাউনলোড করুন।</li>
-              <li>ডাউনলোড করা ফাইল খুলে ইনস্টল করুন।</li>
-              <li>অ্যাপটি ইনস্টল করার জন্য <strong>"Unknown Sources"</strong> চালু করতে হতে পারে।</li>
-            </ol>
-            <p class="install-steps__note">
-              <i data-lucide="info" aria-hidden="true"></i>
-              Android ৮.০ বা তার উপরের সংস্করণে Maya সর্বোত্তমভাবে কাজ করে।
+      <!-- Feedback Section -->
+      <section
+        id="feedback"
+        class="section feedback"
+        aria-labelledby="feedback-heading"
+      >
+        <div class="container">
+          <div class="feedback-card reveal">
+            <div class="feedback-card__icon" aria-hidden="true">
+              <i data-lucide="message-square-heart"></i>
+            </div>
+            <h2 id="feedback-heading" class="feedback-card__title">
+              আপনার মতামত দিন
+            </h2>
+            <p class="feedback-card__text">
+              আপনার মতামত আমাদের অ্যাপকে আরও উন্নত করতে সাহায্য করবে। আপনার
+              অভিজ্ঞতা, পরামর্শ ও সমস্যার কথা আমাদের জানান।
             </p>
+            <!-- MAYA:FORM_URL — Replace href="#" with your Google Form link -->
+            <a
+              href="#"
+              class="btn btn-secondary btn-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i data-lucide="external-link" aria-hidden="true"></i>
+              Google Form-এ ফিডব্যাক দিন
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Feedback Section -->
-    <section id="feedback" class="section feedback" aria-labelledby="feedback-heading">
-      <div class="container">
-        <div class="feedback-card reveal">
-          <div class="feedback-card__icon" aria-hidden="true">
-            <i data-lucide="message-square-heart"></i>
+      <!-- Version & Update Notes -->
+      <section
+        id="version"
+        class="section version"
+        aria-labelledby="version-heading"
+      >
+        <div class="container">
+          <!-- EDIT: Version info below -->
+          <div class="version-card reveal">
+            <div class="version-card__header">
+              <h2 id="version-heading" class="version-card__title">
+                সংস্করণ ও আপডেট
+              </h2>
+              <div class="version-badge">
+                <span class="version-badge__label">বর্তমান সংস্করণ</span>
+                <span class="version-badge__number" data-app-version-number
+                  >১.০</span
+                >
+              </div>
+            </div>
+            <p class="version-card__date">
+              <i data-lucide="calendar" aria-hidden="true"></i>
+              প্রকাশের তারিখ: জুলাই ২০২৬
+            </p>
+
+            <div class="version-notes">
+              <div class="version-notes__group">
+                <h3 class="version-notes__heading">
+                  <i data-lucide="sparkles" aria-hidden="true"></i>
+                  নতুন বৈশিষ্ট্য
+                </h3>
+                <ul>
+                  <li>এক ট্যাপে SOS Alert সিস্টেম</li>
+                  <li>Shake ও Volume Button দিয়ে SOS ট্রিগার</li>
+                  <li>লাইভ লোকেশন ট্র্যাকিং</li>
+                  <li>Guardian নোটিফিকেশন (SMS ও Email)</li>
+                  <li>Stealth Mode ও Offline Retry</li>
+                  <li>বাংলা ও ইংরেজি ভাষা সমর্থন</li>
+                </ul>
+              </div>
+              <div class="version-notes__group">
+                <h3 class="version-notes__heading">
+                  <i data-lucide="bug" aria-hidden="true"></i>
+                  বাগ ফিক্স
+                </h3>
+                <ul>
+                  <li>লোকেশন আপডেটের সময়সীমা উন্নত করা হয়েছে</li>
+                  <li>SMS পাঠানোর সময় সংযোগ ত্রুটি সমাধান</li>
+                  <li>UI রেন্ডারিং সমস্যা ঠিক করা হয়েছে</li>
+                </ul>
+              </div>
+              <div class="version-notes__group">
+                <h3 class="version-notes__heading">
+                  <i data-lucide="gauge" aria-hidden="true"></i>
+                  পারফরম্যান্স উন্নতি
+                </h3>
+                <ul>
+                  <li>অ্যাপ স্টার্টআপ সময় ৩০% দ্রুত</li>
+                  <li>ব্যাটারি ব্যবহার অপ্টিমাইজ করা হয়েছে</li>
+                  <li>নেটওয়ার্ক ব্যবহার কমানো হয়েছে</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <h2 id="feedback-heading" class="feedback-card__title">আপনার মতামত দিন</h2>
-          <p class="feedback-card__text">
-            আপনার মতামত আমাদের অ্যাপকে আরও উন্নত করতে সাহায্য করবে।
-            আপনার অভিজ্ঞতা, পরামর্শ ও সমস্যার কথা আমাদের জানান।
-          </p>
-          <!-- MAYA:FORM_URL — Replace href="#" with your Google Form link -->
-          <a href="#" class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
-            <i data-lucide="external-link" aria-hidden="true"></i>
-            Google Form-এ ফিডব্যাক দিন
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="footer__name" data-app-version-footer>মায়া</span>
+          <p class="footer__tagline">আপনার নিরাপত্তা, আমাদের দায়িত্ব</p>
+        </div>
+
+        <p class="footer__support">
+          কোনো সমস্যা বা প্রশ্ন থাকলে আমাদের সাথে যোগাযোগ করুন। আমরা সাহায্য
+          করতে প্রস্তুত।
+        </p>
+
+        <nav class="footer__links" aria-label="Footer links">
+          <a href="mailto:nareshbarua72@gmail.com" class="footer__link">
+            <i data-lucide="mail" aria-hidden="true"></i>
+            ইমেইল
           </a>
-        </div>
+          <a
+            href="https://github.com/NareshBaruaIsHere"
+            class="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i data-lucide="github" aria-hidden="true"></i>
+            GitHub
+          </a>
+          <a
+            href="https://www.facebook.com/nareshbarua72/"
+            class="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i data-lucide="facebook" aria-hidden="true"></i>
+            Facebook
+          </a>
+          <a href="privacy.html" class="footer__link">
+            <i data-lucide="shield" aria-hidden="true"></i>
+            গোপনীয়তা নীতি
+          </a>
+        </nav>
+
+        <p class="footer__copyright">&copy; ২০২৬ মায়া. সর্বস্বত্ব সংরক্ষিত।</p>
       </div>
-    </section>
+    </footer>
 
-    <!-- Version & Update Notes -->
-    <section id="version" class="section version" aria-labelledby="version-heading">
-      <div class="container">
-        <!-- EDIT: Version info below -->
-        <div class="version-card reveal">
-          <div class="version-card__header">
-            <h2 id="version-heading" class="version-card__title">সংস্করণ ও আপডেট</h2>
-            <div class="version-badge">
-              <span class="version-badge__label">বর্তমান সংস্করণ</span>
-              <span class="version-badge__number" data-app-version-number>১.০</span>
-            </div>
-          </div>
-          <p class="version-card__date">
-            <i data-lucide="calendar" aria-hidden="true"></i>
-            প্রকাশের তারিখ: জুলাই ২০২৬
-          </p>
-
-          <div class="version-notes">
-            <div class="version-notes__group">
-              <h3 class="version-notes__heading">
-                <i data-lucide="sparkles" aria-hidden="true"></i>
-                নতুন বৈশিষ্ট্য
-              </h3>
-              <ul>
-                <li>এক ট্যাপে SOS Alert সিস্টেম</li>
-                <li>Shake ও Volume Button দিয়ে SOS ট্রিগার</li>
-                <li>লাইভ লোকেশন ট্র্যাকিং</li>
-                <li>Guardian নোটিফিকেশন (SMS ও Email)</li>
-                <li>Stealth Mode ও Offline Retry</li>
-                <li>বাংলা ও ইংরেজি ভাষা সমর্থন</li>
-              </ul>
-            </div>
-            <div class="version-notes__group">
-              <h3 class="version-notes__heading">
-                <i data-lucide="bug" aria-hidden="true"></i>
-                বাগ ফিক্স
-              </h3>
-              <ul>
-                <li>লোকেশন আপডেটের সময়সীমা উন্নত করা হয়েছে</li>
-                <li>SMS পাঠানোর সময় সংযোগ ত্রুটি সমাধান</li>
-                <li>UI রেন্ডারিং সমস্যা ঠিক করা হয়েছে</li>
-              </ul>
-            </div>
-            <div class="version-notes__group">
-              <h3 class="version-notes__heading">
-                <i data-lucide="gauge" aria-hidden="true"></i>
-                পারফরম্যান্স উন্নতি
-              </h3>
-              <ul>
-                <li>অ্যাপ স্টার্টআপ সময় ৩০% দ্রুত</li>
-                <li>ব্যাটারি ব্যবহার অপ্টিমাইজ করা হয়েছে</li>
-                <li>নেটওয়ার্ক ব্যবহার কমানো হয়েছে</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <!-- Lightbox Modal -->
+    <div
+      id="lightbox"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="স্ক্রিনশট প্রিভিউ"
+      hidden
+    >
+      <button class="lightbox__close" type="button" aria-label="বন্ধ করুন">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+      <div class="lightbox__backdrop"></div>
+      <div class="lightbox__content">
+        <img class="lightbox__image" src="" alt="স্ক্রিনশট প্রিভিউ" />
       </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <span class="footer__name" data-app-version-footer>মায়া v1.0</span>
-        <p class="footer__tagline">আপনার নিরাপত্তা, আমাদের দায়িত্ব</p>
-      </div>
-
-      <p class="footer__support">
-        কোনো সমস্যা বা প্রশ্ন থাকলে আমাদের সাথে যোগাযোগ করুন। আমরা সাহায্য করতে প্রস্তুত।
-      </p>
-
-      <nav class="footer__links" aria-label="Footer links">
-        <a href="mailto:nareshbarua72@gmail.com" class="footer__link">
-          <i data-lucide="mail" aria-hidden="true"></i>
-          ইমেইল
-        </a>
-        <a href="https://github.com/NareshBaruaIsHere" class="footer__link" target="_blank" rel="noopener noreferrer">
-          <i data-lucide="github" aria-hidden="true"></i>
-          GitHub
-        </a>
-        <a href="https://www.facebook.com/nareshbarua72/" class="footer__link" target="_blank" rel="noopener noreferrer">
-          <i data-lucide="facebook" aria-hidden="true"></i>
-          Facebook
-        </a>
-        <a href="privacy.html" class="footer__link">
-          <i data-lucide="shield" aria-hidden="true"></i>
-          গোপনীয়তা নীতি
-        </a>
-      </nav>
-
-      <p class="footer__copyright">&copy; ২০২৬ মায়া. সর্বস্বত্ব সংরক্ষিত।</p>
     </div>
-  </footer>
 
-  <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="স্ক্রিনশট প্রিভিউ" hidden>
-    <button class="lightbox__close" type="button" aria-label="বন্ধ করুন">
-      <i data-lucide="x" aria-hidden="true"></i>
-    </button>
-    <div class="lightbox__backdrop"></div>
-    <div class="lightbox__content">
-      <img class="lightbox__image" src="" alt="স্ক্রিনশট প্রিভিউ">
+    <!-- APK missing / setup notice -->
+    <div
+      id="apk-toast"
+      class="apk-toast"
+      role="alert"
+      aria-live="polite"
+      hidden
+    >
+      <p class="apk-toast__text"></p>
+      <button type="button" class="apk-toast__close" aria-label="বন্ধ করুন">
+        ×
+      </button>
     </div>
-  </div>
 
-  <!-- APK missing / setup notice -->
-  <div id="apk-toast" class="apk-toast" role="alert" aria-live="polite" hidden>
-    <p class="apk-toast__text"></p>
-    <button type="button" class="apk-toast__close" aria-label="বন্ধ করুন">×</button>
-  </div>
-
-  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
-  <script src="script.js" defer></script>
-</body>
+    <script
+      src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+  </body>
 </html>
