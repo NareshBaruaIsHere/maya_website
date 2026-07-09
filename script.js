@@ -140,6 +140,42 @@
   }
 
   /* --------------------------------------------------------------------------
+     Mobile Phone Stack Animation
+     -------------------------------------------------------------------------- */
+  function initPhoneStackAnimation() {
+    const stack = document.querySelector("[data-phone-stack]");
+    if (!stack) return;
+
+    const mobileQuery = window.matchMedia("(max-width: 639px)");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!mobileQuery.matches) return;
+
+    if (reducedMotion) {
+      stack.classList.add("is-open");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            stack.classList.add("is-open");
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+        rootMargin: "0px 0px -20% 0px",
+      },
+    );
+
+    observer.observe(stack);
+  }
+
+  /* --------------------------------------------------------------------------
      Smooth Scroll for In-Page Anchor Links
      -------------------------------------------------------------------------- */
   function initSmoothScroll() {
@@ -247,6 +283,7 @@
     initVersionDisplay();
     initIcons();
     initReveal();
+    initPhoneStackAnimation();
     initSmoothScroll();
     initLightbox();
     initApkDownloads();
