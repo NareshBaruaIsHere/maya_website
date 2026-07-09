@@ -1376,8 +1376,25 @@ button {
   }
 
   .screenshots__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 0.5rem;
+    margin-inline: calc(var(--container-padding) * -1);
+    padding-inline: var(--container-padding);
+    scrollbar-width: none;
+  }
+
+  .screenshots__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .screenshot-card {
+    flex: 0 0 82%;
+    max-width: 20rem;
+    scroll-snap-align: start;
   }
 
   .footer__links {
