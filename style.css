@@ -27,10 +27,30 @@
   --color-border: #fbcfe8;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #831843 0%, #be185d 35%, #db2777 70%, #ec4899 100%);
-  --gradient-primary: linear-gradient(135deg, #db2777 0%, #ec4899 50%, #f472b6 100%);
-  --gradient-soft: linear-gradient(180deg, #fdf2f8 0%, #fce7f3 45%, #fff1f2 100%);
-  --gradient-card: linear-gradient(135deg, rgba(219, 39, 119, 0.07) 0%, rgba(244, 114, 182, 0.1) 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    #831843 0%,
+    #be185d 35%,
+    #db2777 70%,
+    #ec4899 100%
+  );
+  --gradient-primary: linear-gradient(
+    135deg,
+    #db2777 0%,
+    #ec4899 50%,
+    #f472b6 100%
+  );
+  --gradient-soft: linear-gradient(
+    180deg,
+    #fdf2f8 0%,
+    #fce7f3 45%,
+    #fff1f2 100%
+  );
+  --gradient-card: linear-gradient(
+    135deg,
+    rgba(219, 39, 119, 0.07) 0%,
+    rgba(244, 114, 182, 0.1) 100%
+  );
 
   /* Typography */
   --font-heading: "Hind Siliguri", "Noto Sans Bengali", sans-serif;
@@ -210,7 +230,9 @@ button {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
 }
 
 .reveal.visible {
@@ -246,7 +268,10 @@ button {
   font-weight: 600;
   border-radius: var(--radius-md);
   border: 2px solid transparent;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    background var(--transition-base);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -322,8 +347,16 @@ button {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(252, 231, 243, 0.25) 0%, transparent 50%);
+    radial-gradient(
+      ellipse at 20% 80%,
+      rgba(255, 182, 193, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(252, 231, 243, 0.25) 0%,
+      transparent 50%
+    );
   pointer-events: none;
 }
 
@@ -487,8 +520,13 @@ button {
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -529,7 +567,9 @@ button {
   text-align: center;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .trust-item:hover {
@@ -586,7 +626,10 @@ button {
   padding: var(--spacing-md);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .feature-card:hover {
@@ -657,7 +700,11 @@ button {
   top: 48px;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   opacity: 0.3;
 }
 
@@ -686,7 +733,9 @@ button {
   padding: var(--spacing-md);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .step:hover .step__content {
@@ -725,7 +774,9 @@ button {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 2px solid var(--color-border);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
   cursor: zoom-in;
   padding: 0;
   width: 100%;
@@ -1052,7 +1103,9 @@ button {
   color: rgba(255, 255, 255, 0.85);
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
 }
 
 .footer__link svg {
