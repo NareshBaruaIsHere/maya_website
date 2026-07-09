@@ -471,67 +471,6 @@ button {
   justify-content: center;
 }
 
-.phone-stack {
-  position: relative;
-  width: min(100%, 24rem);
-  height: clamp(18rem, 72vw, 28rem);
-  margin-inline: auto;
-}
-
-.phone-stack__phone {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  transition:
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 450ms ease,
-    filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, opacity;
-}
-
-.phone-stack__phone--left {
-  transform: translate(-72%, -50%) rotate(-7deg) scale(0.92);
-  opacity: 0.92;
-  z-index: 1;
-}
-
-.phone-stack__phone--center {
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-
-.phone-stack__phone--right {
-  transform: translate(-28%, -50%) rotate(7deg) scale(0.92);
-  opacity: 0.92;
-  z-index: 1;
-}
-
-.phone-stack__phone .phone-mockup {
-  display: flex;
-  justify-content: center;
-}
-
-.phone-stack__phone .phone-mockup__frame {
-  width: 176px;
-}
-
-.phone-stack.is-open .phone-stack__phone--left {
-  transform: translate(calc(-50% - clamp(3.75rem, 16vw, 5rem)), -50%)
-    rotate(-12deg) scale(0.9);
-  opacity: 1;
-}
-
-.phone-stack.is-open .phone-stack__phone--center {
-  transform: translate(-50%, -55%) scale(1.02);
-}
-
-.phone-stack.is-open .phone-stack__phone--right {
-  transform: translate(calc(-50% + clamp(3.75rem, 16vw, 5rem)), -50%)
-    rotate(12deg) scale(0.9);
-  opacity: 1;
-}
-
 .phone-mockup__frame {
   position: relative;
   width: 260px;
@@ -1477,15 +1416,6 @@ button {
     border-radius: 24px;
   }
 
-  .phone-stack {
-    width: min(100%, 22rem);
-    height: clamp(20rem, 95vw, 26rem);
-  }
-
-  .phone-stack__phone .phone-mockup__frame {
-    width: 150px;
-  }
-
   .section {
     padding-block: 2rem;
   }
@@ -1794,27 +1724,6 @@ button {
 
   .hero__mockup {
     flex: 0 0 auto;
-  }
-
-  .phone-stack {
-    width: auto;
-    height: auto;
-  }
-
-  .phone-stack__phone {
-    position: relative;
-    inset: auto;
-    transform: none !important;
-    opacity: 1;
-  }
-
-  .phone-stack__phone--left,
-  .phone-stack__phone--right {
-    display: none;
-  }
-
-  .phone-stack__phone .phone-mockup__frame {
-    width: 280px;
   }
 
   .phone-mockup__frame {
