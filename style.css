@@ -1405,15 +1405,15 @@ button {
   }
 
   .btn-lg {
-    min-height: 50px;
-    padding: 0.8rem 1.1rem;
-    font-size: 0.975rem;
+    min-height: 46px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
   }
 
   .phone-mockup__frame {
-    width: 190px;
-    padding: 9px;
-    border-radius: 28px;
+    width: 172px;
+    padding: 8px;
+    border-radius: 24px;
   }
 
   .section {
@@ -1425,17 +1425,17 @@ button {
   }
 
   .section-title {
-    font-size: clamp(1.4rem, 7vw, 1.9rem);
+    font-size: clamp(1.25rem, 6.5vw, 1.65rem);
   }
 
   .section-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     max-width: 30rem;
   }
 
   .download-card,
   .feedback-card {
-    padding: 1.25rem 0.9rem;
+    padding: 1rem 0.8rem;
   }
 
   .download-card__btn,
@@ -1448,19 +1448,24 @@ button {
   .step__content,
   .version-card,
   .feedback-card,
-  .download-card {
-    border-radius: 14px;
+  .download-card,
+  .version-notes__group {
+    border-radius: 12px;
   }
 
   .trust-item__icon,
-  .feature-card__icon {
-    width: 42px;
-    height: 42px;
+  .feature-card__icon,
+  .download-card__icon,
+  .feedback-card__icon {
+    width: 40px;
+    height: 40px;
     margin-bottom: 0.5rem;
   }
 
   .trust-item__icon svg,
-  .feature-card__icon svg {
+  .feature-card__icon svg,
+  .download-card__icon svg,
+  .feedback-card__icon svg {
     width: 1.25rem;
     height: 1.25rem;
   }
@@ -1472,7 +1477,7 @@ button {
   .feedback-card__title,
   .version-card__title,
   .install-steps__title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .trust-item__text,
@@ -1483,8 +1488,8 @@ button {
   .version-card__date,
   .install-steps__list li,
   .version-notes li {
-    font-size: 0.875rem;
-    line-height: 1.55;
+    font-size: 0.8125rem;
+    line-height: 1.5;
   }
 
   .steps {
@@ -1492,19 +1497,19 @@ button {
   }
 
   .step {
-    gap: 0.75rem;
-    padding-bottom: 1rem;
+    gap: 0.625rem;
+    padding-bottom: 0.875rem;
   }
 
   .step__number {
-    width: 40px;
-    height: 40px;
-    font-size: 0.95rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.875rem;
   }
 
   .screenshots__grid {
     display: flex;
-    gap: 0.85rem;
+    gap: 0.75rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -1519,17 +1524,17 @@ button {
   }
 
   .screenshot-card {
-    flex: 0 0 78%;
-    max-width: 17rem;
+    flex: 0 0 74%;
+    max-width: 15.5rem;
     scroll-snap-align: start;
   }
 
   .install-steps {
-    padding: 0.9rem;
+    padding: 0.8rem;
   }
 
   .install-steps__list {
-    padding-left: 1.1rem;
+    padding-left: 1rem;
   }
 
   .footer__links {
@@ -1540,18 +1545,106 @@ button {
 
   .footer__link {
     justify-content: center;
-    min-height: 44px;
-    padding: 0.65rem 0.9rem;
+    min-height: 40px;
+    padding: 0.6rem 0.85rem;
     background: rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-md);
   }
 
   .legal-card {
-    padding: 1rem;
+    padding: 0.875rem;
   }
 
   .scroll-hint {
     display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding-block: 1.75rem 2rem;
+  }
+
+  .hero__inner {
+    gap: 1.15rem;
+  }
+
+  .hero__title {
+    font-size: clamp(1.85rem, 11vw, 2.25rem);
+  }
+
+  .hero__tagline {
+    font-size: 0.9375rem;
+  }
+
+  .hero__intro {
+    font-size: 0.875rem;
+  }
+
+  .hero__actions .btn {
+    min-height: 42px;
+    font-size: 0.875rem;
+  }
+
+  .hero__version {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .section {
+    padding-block: 1.65rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.15rem, 6vw, 1.45rem);
+  }
+
+  .about__text p,
+  .download-card__text,
+  .feedback-card__text {
+    font-size: 0.875rem;
+  }
+
+  .version-badge {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .version-badge__label {
+    font-size: 0.75rem;
+  }
+
+  .version-badge__number {
+    font-size: 0.95rem;
+  }
+
+  .version-card__date {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .version-notes__group {
+    padding: 0.85rem;
+  }
+
+  .version-notes__heading {
+    font-size: 0.9rem;
+  }
+
+  .version-notes__group li {
+    font-size: 0.8rem;
+  }
+
+  .screenshots__grid {
+    gap: 0.65rem;
+  }
+
+  .screenshot-card {
+    flex-basis: 78%;
+    max-width: 14.5rem;
   }
 }
 
