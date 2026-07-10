@@ -791,6 +791,9 @@ button {
   width: 100%;
   aspect-ratio: 9 / 18;
   object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 /* ==========================================================================
@@ -1509,11 +1512,13 @@ button {
 
   .screenshots__grid {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.9rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--container-padding);
     -webkit-overflow-scrolling: touch;
-    padding: 0 0 0.5rem;
+    overscroll-behavior-x: contain;
+    padding: 0.25rem 0 0.75rem;
     margin-inline: calc(var(--container-padding) * -1);
     padding-inline: var(--container-padding);
     scrollbar-width: none;
@@ -1524,9 +1529,19 @@ button {
   }
 
   .screenshot-card {
-    flex: 0 0 74%;
-    max-width: 15.5rem;
-    scroll-snap-align: start;
+    flex: 0 0 min(78vw, 19rem);
+    max-width: 19rem;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    border-radius: 1.25rem;
+    background: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 16px 36px rgba(64, 16, 26, 0.14);
+    touch-action: manipulation;
+  }
+
+  .screenshot-card img {
+    aspect-ratio: 4 / 5;
   }
 
   .install-steps {
@@ -1639,12 +1654,12 @@ button {
   }
 
   .screenshots__grid {
-    gap: 0.65rem;
+    gap: 0.8rem;
   }
 
   .screenshot-card {
-    flex-basis: 78%;
-    max-width: 14.5rem;
+    flex-basis: min(82vw, 18rem);
+    max-width: 18rem;
   }
 }
 

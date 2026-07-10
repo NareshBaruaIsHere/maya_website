@@ -178,11 +178,20 @@
     const lightboxImage = lightbox.querySelector(".lightbox__image");
     const closeBtn = lightbox.querySelector(".lightbox__close");
     const backdrop = lightbox.querySelector(".lightbox__backdrop");
+    const screenshotsGrid = document.querySelector(".screenshots__grid");
     const screenshotCards = document.querySelectorAll(
       ".screenshot-card[data-lightbox]",
     );
+    const mobileCarouselQuery = window.matchMedia("(max-width: 639px)");
 
     let lastFocusedElement = null;
+    let carouselTimer = null;
+    let carouselResumeTimer = null;
+    let isPointerDown = false;
+    let pointerStartX = 0;
+    let pointerStartY = 0;
+    let activeCard = null;
+    let pointerMoved = false;
 
     function openLightbox(src, alt) {
       lastFocusedElement = document.activeElement;
@@ -202,8 +211,168 @@
       }
     }
 
+    function getCarouselStep() {
+      if (!screenshotsGrid) return 0;
+
+      const firstCard = screenshotsGrid.querySelector(".screenshot-card");
+      if (!firstCard) {
+        return screenshotsGrid.clientWidth * 0.8;
+      }
+
+      const gapValue = window.getComputedStyle(screenshotsGrid).columnGap;
+      const gap = Number.parseFloat(gapValue) || 0;
+      return firstCard.getBoundingClientRect().width + gap;
+    }
+
+    function scrollCarousel() {
+      if (!screenshotsGrid || !mobileCarouselQuery.matches) return;
+
+      const maxScroll = screenshotsGrid.scrollWidth - screenshotsGrid.clientWidth;
+      if (maxScroll <= 0) return;
+
+      const step = getCarouselStep();
+      const nextLeft =
+        screenshotsGrid.scrollLeft + step >= maxScroll - 4
+          ? 0
+          : screenshotsGrid.scrollLeft + step;
+
+      screenshotsGrid.scrollTo({
+        left: nextLeft,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }
+
+    function stopCarousel() {
+      if (carouselTimer) {
+        window.clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+
+      if (carouselResumeTimer) {
+        window.clearTimeout(carouselResumeTimer);
+        carouselResumeTimer = null;
+      }
+    }
+
+    function startCarousel() {
+      if (!screenshotsGrid || !mobileCarouselQuery.matches || prefersReducedMotion) {
+        return;
+      }
+
+      if (carouselTimer) return;
+
+      carouselTimer = window.setInterval(function () {
+        if (document.hidden || isPointerDown) return;
+        scrollCarousel();
+      }, 2600);
+    }
+
+    function queueCarouselResume() {
+      if (!screenshotsGrid || !mobileCarouselQuery.matches || prefersReducedMotion) {
+        return;
+      }
+
+      if (carouselResumeTimer) {
+        window.clearTimeout(carouselResumeTimer);
+      }
+
+      carouselResumeTimer = window.setTimeout(function () {
+        startCarousel();
+      }, 1200);
+    }
+
+    function markSwipeIfNeeded() {
+      if (!activeCard || !pointerMoved) return;
+
+      const card = activeCard;
+      activeCard.dataset.ignoreClick = "1";
+      window.setTimeout(function () {
+        delete card.dataset.ignoreClick;
+      }, 350);
+    }
+
+    if (screenshotsGrid) {
+      screenshotsGrid.addEventListener(
+        "pointerdown",
+        function (e) {
+          if (!mobileCarouselQuery.matches || !e.isPrimary) return;
+
+          isPointerDown = true;
+          pointerMoved = false;
+          pointerStartX = e.clientX;
+          pointerStartY = e.clientY;
+          activeCard = e.target.closest(".screenshot-card");
+          stopCarousel();
+        },
+        { passive: true },
+      );
+
+      screenshotsGrid.addEventListener(
+        "pointermove",
+        function (e) {
+          if (!isPointerDown || !e.isPrimary || !activeCard) return;
+
+          const deltaX = Math.abs(e.clientX - pointerStartX);
+          const deltaY = Math.abs(e.clientY - pointerStartY);
+
+          if (deltaX > 8 || deltaY > 8) {
+            pointerMoved = true;
+          }
+        },
+        { passive: true },
+      );
+
+      const finishPointer = function () {
+        markSwipeIfNeeded();
+        isPointerDown = false;
+        pointerMoved = false;
+        activeCard = null;
+        queueCarouselResume();
+      };
+
+      screenshotsGrid.addEventListener("pointerup", finishPointer, {
+        passive: true,
+      });
+      screenshotsGrid.addEventListener("pointercancel", finishPointer, {
+        passive: true,
+      });
+      screenshotsGrid.addEventListener(
+        "mouseenter",
+        function () {
+          stopCarousel();
+        },
+        { passive: true },
+      );
+      screenshotsGrid.addEventListener(
+        "mouseleave",
+        function () {
+          queueCarouselResume();
+        },
+        { passive: true },
+      );
+      screenshotsGrid.addEventListener(
+        "focusin",
+        function () {
+          stopCarousel();
+        },
+        { passive: true },
+      );
+      screenshotsGrid.addEventListener(
+        "focusout",
+        function () {
+          queueCarouselResume();
+        },
+        { passive: true },
+      );
+    }
+
     screenshotCards.forEach(function (card) {
       card.addEventListener("click", function () {
+        if (card.dataset.ignoreClick === "1") {
+          delete card.dataset.ignoreClick;
+          return;
+        }
+
         const src = this.getAttribute("data-lightbox");
         const img = this.querySelector("img");
         const alt = img ? img.getAttribute("alt") : "";
@@ -219,6 +388,23 @@
         closeLightbox();
       }
     });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stopCarousel();
+      } else {
+        startCarousel();
+      }
+    });
+
+    if (typeof mobileCarouselQuery.addEventListener === "function") {
+      mobileCarouselQuery.addEventListener("change", function () {
+        stopCarousel();
+        startCarousel();
+      });
+    }
+
+    startCarousel();
 
     /* Basic focus trap inside lightbox */
     lightbox.addEventListener("keydown", function (e) {
